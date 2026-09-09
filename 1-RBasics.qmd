@@ -1,7 +1,7 @@
 ---
 title: "Worksheet 1: R Basics"
-author: ""
-date: ""
+author: "Makenzie Rojas"
+date: "9/8/26"
 format:
   html:
     df-print: paged
@@ -34,9 +34,15 @@ Numbers can be used to do arithmetic.
 ```
 
 (@) You try, multiple two numbers. 
+```{r}
+5*5
+```
 
 
 (@) Can you multiply two numbers and then divide by the result? 
+```{r}
+(5*5)/2
+```
 
 The next type of value is a **string**. Strings are lines of text. Sometimes these are referred to as character vectors. To create a string, you add text between two quotation marks. For example: 
 ```{r}
@@ -45,7 +51,7 @@ The next type of value is a **string**. Strings are lines of text. Sometimes the
 
 (@) Try to create your own string.
 ```{r}
-
+"Go Cardinals"
 ```
 
 You can't add strings using `+` like you can numbers. But there is a function called `paste()` which concatenates character vectors into one. This function is _very_ useful and one you'll use a lot in a variety of circumstances. Here's what that looks like: 
@@ -56,12 +62,12 @@ paste("Hello", "Ball State Students")
 
 (@) Try it, add two strings together like the above example. 
 ```{r}
-
+paste("Hello,", "Ball State Students")
 ```
 
 (@) Can you explain what happened in 2-3 sentences? 
 
-> 
+> I typed the command paste, then wrote one string, the "Hello". Then I ended that string, wrote out a comma, then I added the second string, "Ball State Students", then closed the parantheses. This caused the two strings to combine into one string of words. 
 
 The last type are **logical** values like `TRUE` and `FALSE`. (Note that these are all caps.)
 
@@ -101,18 +107,18 @@ Logical Operators allow you to combine or change the results of comparisons.
 ```
 (@) Explain, what does the code on each line above do? 
 
->
+>Each line is some kind of equation, the thing decides whether or not the equation (?),  is correct or not, and depending on the answer it will come back as true or false
 
 (@) Create your own comparison. 
 ```{r}
-
+2>8
 ```
 
 (@) Can you write code that checks if a year is between 1970 AND 1980? 
 ```{r}
-
+1970 <= 1980
 ```
-
+No, I tried several times in other files 
 ---
 
 ### Variables
@@ -145,12 +151,12 @@ Whatever you prefer, be consistent and your future self will thank you when your
 
 (@) You try, create a variable and assign it a number: 
 ```{r}
-
+ThisSeemsBest <- 24
 ```
 
 (@) Can you assign a string to a variable?
 ```{r}
-
+VariableOk <- "StringToAVariable"
 ```
 
 Once we've assigned a variable we can use that variable to run calculations just like we did with raw numbers.
@@ -172,22 +178,28 @@ My.Calculation <- (x + x)*10
 
 (@) You try. Assign a number to x and a number to y. Add those two numbers together.
 ```{r}
-
+x <- 4
+y <- 2
+x + y
 ```
 
 (@) Can you take `x` and `y` and multiply the result by 5? 
 ```{r}
-
+(x + y) * 5
 ```
 
 (@) Try creating two variables with names other than `x ` and `y`. Descriptive names tend to be more useful. Can you multiply the contents of your variables? 
 ```{r}
-
+VeryDescriptiveName <- 2
+EvenMoreDescribeWow <- 5
+VeryDescriptiveName * EvenMoreDescribeWow
 ```
 
 (@) Try creating two variables that store strings. Can you concatenate those two variables together? 
 ```{r}
-
+x <- "StringVeryCool,"
+y <- "WowWowString"
+paste(x,y)
 ```
 
 ### Vectors
@@ -227,7 +239,7 @@ my.numbers * 2
 
 (@) Explain in a few sentences, what happened in the code above?
 
->
+> It took the list of numbers and multiplied each one by two. 
 
 Lets try something slightly different. 
 ```{r}
@@ -236,11 +248,11 @@ my.numbers[3] * 2
 
 (@) Explain in a few sentences, what happened in the code above? 
 
->
+> It's the same thing, but since you specified the 3, it only multiplied the 2 by the third variable
 
 (@) You try, create a list of five items and store it in a descriptive variable. 
 ```{r}
-
+ReallyMyValue <- c("cat", "dog", "fox", "rat", "frog")
 ```
 
 
@@ -274,14 +286,14 @@ We can ask R to pull up the documentation like this:
 (@) Now you try, find the documentation for the function  `signif()`.
 ```{r}
 #| eval: false
-
+?signif
 ```
 
 In real life, you typically you wouldn't want to store this code in your script file. You probably don't need to pull up the documentation for the function every time you run that piece of code. But for the purposes of this worksheet we're adding it to our `.qmd` document. Notice that I included ``#| eval: false`` in both code chunks above -- this is what stops the chunks from executing every time you render your worksheet as an HTML file.
 
 (@) Use the console to find the documentation for `floor()`? Try it and then tell me, what does that function do? 
 
->
+> It took me to the R rounding of number thing again, which is correct because that has the segment about what the floor does. 
 
 ### Data Frames & Packages
 
@@ -320,7 +332,7 @@ What is going on here? Each line within this function (x,y,z) creates a new colu
 
 (@) What is going on in row z? Can you explain the logic here?
 
->
+> Z is just the answer to the equation that was put in the previous line of code. 
 
 
 ## Loading Dataframes from Packages

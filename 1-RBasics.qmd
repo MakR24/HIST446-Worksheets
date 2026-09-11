@@ -116,9 +116,9 @@ Logical Operators allow you to combine or change the results of comparisons.
 
 (@) Can you write code that checks if a year is between 1970 AND 1980? 
 ```{r}
-1970 <= 1980
+dplyr::between(1970, 1980)
 ```
-No, I tried several times in other files 
+No, I literally do not know what to do it doesn't make any sense. Thanks!
 ---
 
 ### Variables
@@ -346,9 +346,9 @@ What kind of datasets are available in this package? We can use the help documen
 
 Run `help(package="DigitalMethodsData")` in your console to pull up a list of datasets included in this package. 
 
-For demonstration purposes we'll use the `gayguides` data here. Pull up the help documentation for this dataset. What does the documentation tell you abou the scope of this dataset? 
-
->
+For demonstration purposes we'll use the `gayguides` data here. Pull up the help documentation for this dataset. What does the documentation tell you about the scope of this dataset? 
+The documentation was able to tell me that the dataset contains a list of address in an address book from 1965-1985
+> 
 
 To use a dataset included in this package we first need to load it. We can do so like this:
 ```{r}
@@ -370,17 +370,17 @@ That gives us the first 6 rows of data. Its really useful if you just want to pe
 
 (@) The default is to print six rows of data. Can you modify the above code to print out the first 10 rows? 
 ```{r}
-
+head(gayguides, n = 10L)
 ```
 
 (@) Can you find the last 6 rows of data? 
 ```{r}
-
+tail(gayguides, n = 6)
 ```
 
 (@) Reflect on the previous two prompts. How did you figure these out? 
 
->
+> I had to do the ? thing where you can get the Help menu to pop up. 
 
 The `str()` function is another very useful function for understanding a dataset. It compactly displays the internal structure of an R object. 
 ```{r}
@@ -401,29 +401,32 @@ gayguides$title[500]
 
 (@) Break this down. Whats going on here? What do each of the elements of this code mean? (gayguides, $, title, and [500]) 
 
->
+> 
 
 (@) The Year variable contains the year (numeric) of each entry. Can you find the earliest year in this dataset? (Using code, don't cheat and use the documentation!)
 ```{r}
-
+head(gayguides$Year)
 ```
-
+1982!
 
 (@) How about the latest year? 
 ```{r}
-
+tail(gayguides$Year)
 ```
-
+1977
 
 (@) Add another dataset from `DigitalMethodsData`. How many observations are included in this dataset? Run through some of the examples from above to learn about the dataset.
 ```{r}
-
+library(DigitalMethodsData)
+data("judges")
+```
+```{r}
+str(judges)
 ```
 
 (@) What did you learn about the dataset? What can you tell me about it? 
 
->
-
+>This is a dataset containing the information of different judge position, and who was in them, when they were appointed, fired, or died. 
 
 
 

@@ -116,7 +116,7 @@ Logical Operators allow you to combine or change the results of comparisons.
 
 (@) Can you write code that checks if a year is between 1970 AND 1980? 
 ```{r}
-dplyr::between(1970, 1980)
+1875 < 1970 & 1875 < 1980
 ```
 No, I literally do not know what to do it doesn't make any sense. Thanks!
 ---

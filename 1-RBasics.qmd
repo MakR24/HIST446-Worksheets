@@ -116,7 +116,7 @@ Logical Operators allow you to combine or change the results of comparisons.
 
 (@) Can you write code that checks if a year is between 1970 AND 1980? 
 ```{r}
-1875 < 1970 & 1875 < 1980
+1875 < 1970 & 1875 <1980
 ```
 No, I literally do not know what to do it doesn't make any sense. Thanks!
 ---
@@ -405,15 +405,15 @@ gayguides$title[500]
 
 (@) The Year variable contains the year (numeric) of each entry. Can you find the earliest year in this dataset? (Using code, don't cheat and use the documentation!)
 ```{r}
-head(gayguides$Year)
+min(gayguides$Year)
 ```
-1982!
+1965
 
 (@) How about the latest year? 
 ```{r}
-tail(gayguides$Year)
+max(gayguides$Year)
 ```
-1977
+1985
 
 (@) Add another dataset from `DigitalMethodsData`. How many observations are included in this dataset? Run through some of the examples from above to learn about the dataset.
 ```{r}

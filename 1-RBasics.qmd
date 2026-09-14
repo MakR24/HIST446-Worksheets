@@ -370,7 +370,7 @@ That gives us the first 6 rows of data. Its really useful if you just want to pe
 
 (@) The default is to print six rows of data. Can you modify the above code to print out the first 10 rows? 
 ```{r}
-head(gayguides, n = 10L)
+head(gayguides, n = 10)
 ```
 
 (@) Can you find the last 6 rows of data? 
@@ -405,7 +405,7 @@ gayguides$title[500]
 
 (@) The Year variable contains the year (numeric) of each entry. Can you find the earliest year in this dataset? (Using code, don't cheat and use the documentation!)
 ```{r}
-min(gayguides$Year)
+print(min(gayguides$Year))
 ```
 1965
 

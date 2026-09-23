@@ -1,8 +1,8 @@
 ---
 title: "In-Class Exercise: Building a Database of Muncie Directories"
 subtitle: "From a printed source, to a table, to related tables"
-author: ""
-date: ""
+author: "Makenzie Rojas"
+date: "2026/09/23"
 format:
   html:
     df-print: paged
@@ -61,12 +61,16 @@ Now look at the **scan** of the same page available online by clicking on this U
 (@) Compare the scan with the text above. Name **three** things a reader of the scan knows that the OCR text gets wrong or loses.
 
 >
+# 1. It loses the sideways text on the left side of the page, I assume the OCR text reads left to right, and isn't able to comprehend the letters being sideways
+# 2. For the advertisement at the bottom of the page, it loses the address and phone extensions in the comapritavely smaller text to the rest of the advertisment
+# 3. It loses the Lines that seperate the title/advertisment from the main body of the page
 
 (@) Find the page in this city directory volume that explains the directory's abbreviations (the table of contents on Page 7 tells you where). What does an asterisk before a name mean?
 
->
+>#An asterisk before a name means that the person is a person of color (Refered to in the directory as Colored)
 
 ### Where did the sample table you loaded with `read_csv()` come from?
+#It came from a sample of a city directory, "data/citydir-1925-sample.csv"
 
 The file in `data/` was made by asking the repository for each page's text, one page at a time. You can ask for page 206 yourself. Its address is an ordinary URL, built from the collection's name (`MunCityDirs`) and the page's pointer (`10723`):
 
@@ -84,13 +88,15 @@ if (is.null(live)) {
 
 (@) Notice the object that was fetched from the JSON request `live`. It's a list 66 elements. Go back to the scan of Page 206 at the DMR website. Can you figure out what those 66 elements refer to?
 
->
+>#The list of 66 refers to each piece of data on the page, and I think the metadata
 
 The repository answered with a whole record for this one page. In a future worksheet, you'll write a loop that does this for many pages, politely. By the end of this code, we saved just one field, `full`, as `live_text`. 
 
 (@) Which three of the 66 fields became the three columns in `pages`?
 
->
+>#1. pagetitle refers to the title: "Page 206"
+# 2. pageptr:shows the page ID
+#3. text: Refers to the text
 
 (@) Run the code chunk below to create a one-row table from the `live` object that has the same columns as the `pages` table and the values for page 206.
 ```{r}
@@ -123,7 +129,11 @@ by_hand <- tribble(
   3,      "Davis",  "Carl S.", "Naomi O.", FALSE,     "secretary, treasurer and cashier", "Muncie Water Works Co.", "200 Queen", "res",    "Work address (316 S. Mulberry) has no column. OCR reads Naomi's initial as a zero."
 )
 
-by_hand
+
+by_hand <- by_hand %>% add_row(entry = 4, surname = Davis, given = Carl F., spouse = Pauline A., asterik = FALSE, occupation = inspector, employer = )
+ 
+
+
 ```
 
 A few rules I followed, all from our readings on spreadsheets and databases:

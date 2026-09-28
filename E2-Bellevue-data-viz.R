@@ -41,9 +41,10 @@ ggplot(emigrants_by_month, aes(x = month, y = n)) +
 
 # QUESTION: What happens after May 1847? Write down what you think it means
 # before you run the next section.
-
+# ANSWER: There was a spike in May 1847, and a steep drop by June
 
 #### 2. Did the immigrants stop coming? ####
+# Not necessarily, we have no context so we cannot be positive. 
 
 # Count ALL admissions by month, split into "recent emigrant" and everything else.
 all_by_month <- bellevue %>%
@@ -63,7 +64,7 @@ ggplot(all_by_month, aes(x = month, y = n, color = reason)) +
 # QUESTION: Total admissions stay high after June 1847, but "recent emigrant"
 # almost disappears. What changed: the people, or the paperwork? What would a
 # reader who saw only the graph in section 1 conclude?
-
+# A reader might conclude that the reasons for emigration expanded to be more specific instead of just "Recent Emigrant"
 dir.create("output/exercise2/", showWarnings = FALSE)
 ggsave("output/exercise2/bellevue_admissions_by_month.png", width = 8, height = 5)
 
@@ -108,3 +109,4 @@ bellevue %>%
   geom_col()
 
 # (f) Choose one of the above visualizations to save to your new output/exercise2/ directory. Commit, then push to GitHub.
+ggsave("output/exercise2/occupations_by_gender.png", width = 8, height = 11)

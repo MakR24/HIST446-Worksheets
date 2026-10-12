@@ -1,7 +1,7 @@
 ---
 title: "Worksheet 3: Loops, Conditionals and Functions"
-author: ""
-date: ""
+author: "Makenzie Rojas"
+date: "10-12-2026"
 format:
   html:
     df-print: paged
@@ -75,22 +75,30 @@ if (x > 90) {
 
 (@) You are teaching Social Studies at a High School in Muncie, Indiana. Your class has an enrollment cap of 30 students. Write an `if` statement that calculates whether the enrollment cap has been met. 
 ```{r}
-
+x <- 30
+if (x > 30) print(TRUE)
 ```
 
 (@) Create a list of presidents and store it in a variable. Use an `if` statement to check if the number of presidents in the list is more than 5. If its not, indicate that too. 
 ```{r}
-
+PresList <- c("JFK", "George Washington", "Barack Obama", "Jimmy Carter", "Abraham Lincoln", "Thomas Jefferson")
+if (length(PresList > 5)) print(TRUE)
+#I looked up the length thing when it didn't work without it
 ```
 
 (@) You can also use an if statement to check a variable in a dataframe. How might you use an if statement to check if the GayGuides dataset contains any year after 1990? (Hint: first try to figure out how to determine the latest year in the dataframe and then build an if statement that checks that and prints something out if its true or false. You should think about what kind of value in contained in the Year column, how to access it, and how to check for the latest value.) 
 
 ```{r}
+if (max(gayguides$Year) > 1990) {
+  print("There is a year after 1990")
+} else {
+  print("There is NOT a year after 1990")
+}
 ```
 
 (@) Reflect on the question above. How did you figure this out? What was the process you went through to build this chunk of code?
 
-> 
+> I started with the hint, and I knew that I needed to find the latest year in the dataset, so my first thought was to do something with the head function. But then I realized that I could just use the max function in the years column. Then I put it in like that in the if statement
 
 #### Loops
 
@@ -122,23 +130,32 @@ for (p in 1:length(presidents)) {
 
 (@) Why does this work? What does `length()` do and why do we use it on `presidents`?
 
-> 
+> Length I think counts the items in a list, so it takes the string texts and sort of turns it into a number for the code and assigns each string a number so it knows to list it. I think anyways. 
 
 (@) Create a character vector that contains the title of each of your classes this semester. Can you write a `for` loop that prints out "I am enrolled in" and the name of each of your classes? ("I am enrolled in History 200", "I am enrolled in History 446".....etc). 
 
 **Hint:** You'll need a function to combine the output and some text of your choosing inside the function.
 
 ```{r}
-
+Classes <- c("History 446", "Anthropology 220", "Anthropology 316", "Sociology 235")
+for (c in Classes) {
+  print(paste("I am enrolled in", c))
+}
 ```
 
 (@) Now let's practice with data. Create a loop that prints out the first 5 titles from the gayguides dataset. Hint: You'll need to loop from 1 to 5 and access `gayguides$title[i]`
 ```{r}
-
+for (i in 1:5)
+  print(gayguides$title[i])
 ```
 
 (@) Can you modify the above loop to only print titles that contain the word "Bar"? (Hint: use grepl() to search for "Bar" in the title)
 ```{r}
+for (i in 1:5) {
+  if (grepl("Bar", gayguides$title[i]))
+    print(gayguides$title[i])
+  else print("No Bar")
+}
 ```
 
 Sometimes we want our loop to terminate itself early. There are two statements that help us do that: 
@@ -170,11 +187,11 @@ for (i in 1:10) {
 
 (@) What happened here? Why did the loop only print 3 and 4? 
 
->
+> The next number in the loop after 3 and 4 was 5, and you used the code to break the loop if one of the numbers was greater than or equal to 5. So it stopped looping. 
 
 (@) What if we wanted to loop through the gay guides data? Can you write a loop that iterates through the cities in the Gay Guides data and returns the title of any location in Greenville? 
 ```{r}
-
+gg <- c()
 ```
 
 (@) The Gay Guides data is quite large (60,000+ entries). Write a loop that searches through the data and finds the first 5 locations in New York City. Your loop should:

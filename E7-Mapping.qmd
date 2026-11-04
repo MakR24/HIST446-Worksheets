@@ -1,8 +1,8 @@
 ---
 title: "Exercise 7: Mapping Muncie, 1925"
 subtitle: "Base layers, small multiples, and interactive maps in R"
-author: ""
-date: ""
+author: "Makenzie Rojas"
+date: "11/4/2026"
 format:
   html:
     theme: cosmo

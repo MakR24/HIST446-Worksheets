@@ -1,8 +1,8 @@
 ---
 title: "In-Class Exercise 5: Distant Reading *The American City*"
 subtitle: "Text analysis in Voyant Tools"
-author: ""
-date: ""
+author: "Makenzie Rojas"
+date: "10/21/2026"
 format:
   html:
     theme: cosmo

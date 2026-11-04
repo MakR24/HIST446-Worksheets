@@ -196,7 +196,7 @@ FOTM has several ways of saying "nothing here": an empty cell (`NA` in R), `{und
 
 (@) Discuss with your pair or group and answer: what might be the difference between `NOT_PROVIDED` and `{undefined value}`? Why does it matter which one a cell has?
 
-> Difference between the information not being provided in the advertisement versus not being enered into the table. 
+> Difference between the information not being provided in the advertisement versus not being enered into the table. -9 is a way of saying unknown. 
 
 Now measure how full each field is. The function below counts, for every column you give it, the share of rows with an actual value. `pivot_longer()` is new: it stacks all the columns into two, `field` and `value`, so we can count them all at once.
 
@@ -303,7 +303,7 @@ The following fixes don't change meaning or interpretation, so we'll do these fi
 
 (@) How many choices does each facet list now?
 
->
+> 15 for each
 
 ### The hard fixes
 
@@ -327,7 +327,7 @@ hard_cases %>% filter(left_kinship == "slave") %>% pull(transcription) %>% cat(s
 
 (@) Discuss with your pair or group: Who is John Halsey, and why is he in a table of *runaways* and a table of *kinship*? What does this data point tell you about the difference between the database's categories and the historical relationship?
 
->
+> John Halsey is someone who was a slave owner and that used to "own" Nelly. He is in the runaways table because he was in an advertisement for runaways. He is in kinship because one of the categories for kinship is "former slave owner". 
 
 (@) Now let's print all the ads from hard_cases to examine the other five rows:
 ```{r}
@@ -336,7 +336,7 @@ hard_cases %>% pull(transcription) %>% cat(sep = "\n\n----------\n\n")
 
 (@) All the other five rows come from the **same ad**, printed on different days and transcribed separately. What does the ad actually say about how George, Celia, and Sarah are related? What did each volunteer's markup add to, or take away from, what the ad says?
 
->
+> The ad never actually says how they are related, just that all three together make up one family. The vounteer says for some of them Father/Brother and Mother/Sister, but its impossible to know for sure with just the information garned on the ad. 
 
 This advertisement was printed many times. Let's generate a subset table with all of the reprints of the advertisement. The subset's unit of analysis should be one row per person per printing.
 
@@ -413,6 +413,7 @@ my_kinship_decisions <- tribble(
   ~original,   ~changed_to, ~why,
   "mother",    "Mother",    "Same word, different capitalization.",
   # add your rows here
+  "family members", "Family Members", "Same word, different capitalization"
 )
 
 my_kinship_decisions
@@ -470,7 +471,7 @@ passing %>% filter(ad_says_pass) %>% slice(1:3) %>% pull(transcription) %>% cat(
 
 (@) What words do the ads use where the database says `white passing`? Now read two ads where `ad_says_pass` is `FALSE` (change the code above). Why do you think the volunteer tagged them `white passing`?
 
->
+> 
 
 Last, the most common term. How often does the ad itself use the word?
 
